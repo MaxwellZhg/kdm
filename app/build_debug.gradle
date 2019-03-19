@@ -1,0 +1,164 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.funtsui.dell.kotlindarggermvvm"
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+    signingConfigs {
+
+        mul_test {
+            keyAlias 'test'
+            storeFile file('keystore/test.jks')
+            keyPassword 'yuyuji001'
+            storePassword 'yuyuji001'
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            //启用混淆配置
+            minifyEnabled false
+            //Zip代码压缩优化
+            zipAlignEnabled false
+            //移除无用资源
+            shrinkResources false
+            //加载默认混淆文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+        }
+    }
+    productFlavors {
+        flavorDimensions "default"
+        mul_test_market {
+            dimension "default"
+            applicationId "com.funtsui.dell.kotlindarggermvvm.mul_test_market"
+            versionCode 357
+            versionName "3.5.7"
+            manifestPlaceholders = [APP_NAME: '第一个马甲包']
+           // manifestPlaceholders = [UMENG_CHANNEL_VALUE: "market"]
+            signingConfig signingConfigs.mul_test
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    lintOptions {
+        abortOnError false
+    }
+
+
+    dataBinding {
+        enabled = true
+    }
+
+}
+allprojects {
+    repositories {
+        maven { url 'https://maven.google.com' }
+        maven { url 'https://dl.google.com/dl/android/maven2/' }
+        jcenter()
+        mavenCentral()
+    }
+}
+
+kapt {
+    generateStubs = true
+}
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    // anko
+    compile "org.jetbrains.anko:anko-commons:$anko_version"
+
+    // support
+    implementation "com.android.support:design:$surpport_version"
+    implementation "com.android.support:appcompat-v7:$surpport_version"
+    implementation "com.android.support:recyclerview-v7:$surpport_version"
+    implementation "com.android.support:support-v4:$surpport_version"
+
+    // architecture
+    // lifecycles
+    implementation "android.arch.lifecycle:runtime:$lifecycle_version"
+    implementation "android.arch.lifecycle:common-java8:$arch_version"
+    kapt "android.arch.lifecycle:compiler:$arch_version"
+    //  LiveData & ViewModel
+    implementation "android.arch.lifecycle:extensions:1.1.0"
+    annotationProcessor "android.arch.lifecycle:compiler:1.1.0"
+
+
+    // room
+    implementation "android.arch.persistence.room:runtime:$room_version"
+    kapt "android.arch.persistence.room:compiler:$room_version"
+    implementation "android.arch.persistence.room:rxjava2:$room_version"
+
+    // retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.1.2'
+    implementation 'com.facebook.stetho:stetho:1.3.1'
+    implementation 'com.facebook.stetho:stetho-okhttp3:1.3.1'
+    implementation "com.squareup.retrofit2:converter-scalars:$retrofit_version"
+    // dagger
+//    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
+    implementation 'com.google.dagger:dagger-android:2.16'
+    implementation 'com.google.dagger:dagger-android-support:2.16' // if you use the support libraries
+    kapt "com.google.dagger:dagger-compiler:2.16"
+    kapt 'com.google.dagger:dagger-android-processor:2.16'
+    // IconFont
+    compile 'com.mikepenz:iconics-core:2.8.9@aar'
+    compile 'com.mikepenz:google-material-typeface:3.0.1.1.original@aar'
+
+    // timeber
+    compile 'com.jakewharton.timber:timber:4.5.1'
+
+    // RxJava
+    implementation 'io.reactivex.rxjava2:rxkotlin:2.1.0'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.0.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0'
+    //multidex
+    compile 'com.android.support:multidex:1.0.1'
+    //rxlifecycle
+    implementation "com.trello.rxlifecycle2:rxlifecycle-android-lifecycle-kotlin:$rxlifecycle_version"
+    //swipelayout
+
+    implementation 'com.github.anzewei:parallaxbacklayout:1.1.9'
+
+    implementation 'com.trello.rxlifecycle2:rxlifecycle-components:2.1.0'
+
+    implementation 'com.jaeger.statusbarutil:library:1.4.0'
+
+    implementation 'com.github.GrenderG:Toasty:1.2.5'
+
+    implementation 'com.github.zhaokaiqiang.klog:library:0.0.1'
+
+    //Debug 模式下奔溃界面信息展示，便于错误日志查看
+    implementation 'cat.ereza:customactivityoncrash:2.2.0'
+
+}

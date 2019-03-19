@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Maven</string>
+    <string name="state_net_error">没有网络</string>
+    <string name="state_data_empty">没有数据</string>
+
+    <string name="main_zhg_tab_free">免费计划</string>
+    <string name="main_zhg_tab_hisory">开奖历史</string>
+    <string name="main_zhg_tab_play">玩法走势</string>
+</resources>

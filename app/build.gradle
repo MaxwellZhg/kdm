@@ -1,0 +1,7 @@
+apply from: 'build_debug.gradle'
+//apply from: 'build_publish.gradle'
+
+
+dependencies {
+    implementation 'com.android.support.constraint:constraint-layout:+'
+}

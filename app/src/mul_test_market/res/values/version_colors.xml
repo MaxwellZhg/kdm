@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="guest_text_color">#d6a23e</color>
+    <color name="publish_white">#ffffff</color>
+    <color name="publish_text_color">#6b6b6b</color>
+    <color name="publish_content_color">#8e8e8e</color>
+    <color name="publish_select_zhg_color">#3184cd</color>
+    <color name="publish_main_theme_color">#752c16</color>
+    <color name="publish_default">#9b9da2</color>
+    <color name="pwk_text_color">#333333</color>
+    <color name="publish_mian_underline">#E6E6E6</color>
+    <color name="publish_forget">#A1A3A9</color>
+    <color name="active_black">#E6E6E6</color>
+    <color name="lock_grayy">#A1A3AA</color>
+    <color name="base_gray">#5F5F5D</color>
+    <color name="verification">#3CC0E7</color>
+    <color name="solid_four">#feae16</color>
+</resources>

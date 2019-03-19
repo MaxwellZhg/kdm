@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">马甲模板</string>
+    <string name="app_apk_name">test</string>
+    <!-- fir token id -->
+    <string name="version_app_id">5a321af1959d6952f500004c</string>
+    <!--微信认证平台-->
+    <string name="wei_xin_id">wx9cbde0d9885d6eef</string>
+    <string name="wei_xin_secret">8f2e52e4823e54d539e97ef3a41a1eec</string>
+    <!--web 对应的客户的名字-->
+    <string name="web_module_name">TEST</string>
+    <!-- 友盟key -->
+    <string name="umeng_Appkey"></string>
+    <string name="umeng_Message_Secret"></string>
+    <!--socketIo 连接id 老K-->
+    <string name="socket_io_app_id">657cbdb</string>
+    <!--上架风格-->
+    <string name="app_grounding_style">1</string>
+    <!--当前环境:test uat prod-->
+    <string name="live_env">uat</string>
+    <string name="live_enable">0</string>
+    <string name="password_digits">*._0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLIMNOPQRSTUVWXYZ</string>
+</resources>

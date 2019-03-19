@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.funtsui.dell.kotlindarggermvvm">
+    <supports-screens
+            android:anyDensity="true"
+            android:largeScreens="true"
+            android:normalScreens="true"
+            android:smallScreens="true"/>
+    <meta-data
+            android:name="android.max_aspect"
+            android:value="2.1"/>
+    <application>
+        <activity android:name="com.ssf.tc.publish.PublishMainActivity"
+                  android:resizeableActivity="true"
+                  android:screenOrientation="portrait"/>
+        <activity android:name="com.ssf.tc.publish.PublishTestActivity"/>
+    </application>
+
+</manifest>
