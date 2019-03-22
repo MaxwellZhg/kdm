@@ -1,9 +1,11 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'org.greenrobot.greendao'
+
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -72,6 +74,7 @@ android {
 }
 allprojects {
     repositories {
+        maven { url "https://jitpack.io" }
         maven { url 'https://maven.google.com' }
         maven { url 'https://dl.google.com/dl/android/maven2/' }
         jcenter()
@@ -83,6 +86,12 @@ kapt {
     generateStubs = true
 }
 
+greendao{
+    targetGenDir 'src/main/java'
+    schemaVersion 1
+    daoPackage 'greendao'
+
+}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -160,5 +169,10 @@ dependencies {
 
     //Debug 模式下奔溃界面信息展示，便于错误日志查看
     implementation 'cat.ereza:customactivityoncrash:2.2.0'
+
+    //GreenDao
+    api "org.greenrobot:greendao:$greendao_version" // add library
+
+    api 'org.greenrobot:eventbus:3.1.1'
 
 }

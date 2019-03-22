@@ -6,6 +6,7 @@ import com.funtsui.dell.kotlindarggermvvm.R
 import com.funtsui.dell.kotlindarggermvvm.base.JectPackActivity
 import com.funtsui.dell.kotlindarggermvvm.databinding.ActivityPublishMainBinding
 import com.funtsui.dell.kotlindarggermvvm.net.HttpService
+import com.funtsui.dell.kotlindarggermvvm.net.IPublishConstantPool
 import com.funtsui.dell.kotlindarggermvvm.net.convert
 import com.socks.library.KLog
 import org.jetbrains.anko.startActivity
@@ -22,8 +23,9 @@ class PublishMainActivity :JectPackActivity<ActivityPublishMainBinding>(R.layout
     }
 
     private fun initData() {
-        HttpService.officialApi.checkLotteryList().convert(this, success = {
-
+        val requestUrl = IPublishConstantPool.sCommonUrl+IPublishConstantPool.testUrl+"?channel_id=market"
+        HttpService.officialApi.getShelvesInfo(requestUrl).convert(this, success = {
+               KLog.e("tttttt",it.toString())
         }, error = {
 
         })

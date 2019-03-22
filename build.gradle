@@ -11,6 +11,7 @@ buildscript {
     ext.dagger_version = "2.14.1"
     ext.rxjava_version = "2.1.2"
     ext.rxlifecycle_version="2.2.1"
+    ext.greendao_version = "3.2.2"
     repositories {
         google()
         jcenter()
@@ -19,6 +20,8 @@ buildscript {
         classpath 'com.android.tools.build:gradle:3.2.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'org.jetbrains.dokka:dokka-android-gradle-plugin:0.9.15'
+        // greenDao
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -28,7 +31,6 @@ allprojects {
     repositories {
         google()
         jcenter()
-        mavenCentral()
         maven { url "https://jitpack.io" }
     }
 }
